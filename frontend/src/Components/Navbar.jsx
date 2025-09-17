@@ -20,7 +20,7 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="flex items-center space-x-8">
           <NavLink
-            to="/hero"
+            to="/"
             className={({ isActive }) =>
               `font-medium transition px-3 py-2 ${
                 isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
