@@ -1,11 +1,19 @@
 import React from 'react'
 
+import Service from './Components/Service'
+function App() {
+  return (
+    <>
+    <Service/>
+  
+
+
 import Hero from "./Components/hero";
 function App() {
   return (
     <>
       <Hero />
-      {/* <Service /> */}
+ 
 
 
 import Footer from './Components/Footer'
@@ -18,6 +26,7 @@ function App() {
 </>
 
 import AboutPage from './Components/About'
+
 
      
     
