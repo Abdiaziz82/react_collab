@@ -1,7 +1,5 @@
-import React from 'react'
+Ximport React from 'react'
 function App() {
-  
-
   return (
     <>
       <h1>HELLO COLLABORATERS</h1>
