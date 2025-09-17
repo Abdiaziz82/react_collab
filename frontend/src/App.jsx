@@ -1,5 +1,13 @@
 import React from 'react'
 
+import Footer from './Components/Footer'
+function App() {
+  return (
+    <>
+     
+     <Footer/>  
+</>
+
 import AboutPage from './Components/About'
 
      
@@ -12,6 +20,7 @@ function App() {
     
     <Navbar />
       <AboutPage />
+
 
     </>
   )
