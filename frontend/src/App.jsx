@@ -1,5 +1,13 @@
 import React from 'react'
 
+import Features from './Components/Features.jsx'
+
+function App() {
+  return (
+    <>
+     <Features />
+
+
 import Service from './Components/Service'
 function App() {
   return (
@@ -38,6 +46,7 @@ function App() {
     
     <Navbar />
       <AboutPage />
+
 
 
     </>
