@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { NavLink } from "react-router";
 
 export default function Navbar() {
   return (
@@ -11,21 +12,80 @@ export default function Navbar() {
             alt="Logo"
             className="h-10 w-10 object-contain"
           />
-          <span className="ml-3 text-2xl font-bold text-gray-800">BrandName</span>
+          <span className="ml-3 text-2xl font-bold text-gray-800">
+            BrandName
+          </span>
         </div>
+
         {/* Navigation Links */}
         <div className="flex items-center space-x-8">
-          <a href="#hero" className="text-gray-700 hover:text-blue-600 font-medium transition px-3 py-2">Hero</a>
-          <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition px-3 py-2">About</a>
-          <a href="#services" className="text-gray-700 hover:text-blue-600 font-medium transition px-3 py-2">Services</a>
-          <a href="#products" className="text-gray-700 hover:text-blue-600 font-medium transition px-3 py-2">Products</a>
-          <a href="#login" className="text-gray-700 hover:text-blue-600 font-medium transition px-3 py-2">Login</a>
-          <a
-            href="#signup"
-            className="bg-blue-600 text-white font-medium px-5 py-2 rounded-full shadow hover:bg-blue-700 transition"
+          <NavLink
+            to="/hero"
+            className={({ isActive }) =>
+              `font-medium transition px-3 py-2 ${
+                isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+              }`
+            }
+          >
+            Hero
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `font-medium transition px-3 py-2 ${
+                isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+              }`
+            }
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              `font-medium transition px-3 py-2 ${
+                isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+              }`
+            }
+          >
+            Services
+          </NavLink>
+
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              `font-medium transition px-3 py-2 ${
+                isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+              }`
+            }
+          >
+            Products
+          </NavLink>
+
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              `font-medium transition px-3 py-2 ${
+                isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+              }`
+            }
+          >
+            Login
+          </NavLink>
+
+          <NavLink
+            to="/signup"
+            className={({ isActive }) =>
+              `font-medium px-5 py-2 rounded-full shadow transition ${
+                isActive
+                  ? "bg-blue-700 text-white"
+                  : "bg-blue-600 text-white hover:bg-blue-700"
+              }`
+            }
           >
             Sign Up
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>

@@ -1,62 +1,41 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 
-import Signup from './Components/Signup'  
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import AboutPage from "./Components/About";
+import LoginPage from "./Components/Login";
+import Service from "./Components/Service";
+import Products from "./Components/Product";
+import Signup from "./Components/Signup";
+import Features from "./Components/Features";
+import Hero from "./Components/Hero";
+
 function App() {
   return (
-    <>
-      <Signup />
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        {/* Navbar */}
+        <Navbar />
 
+        {/* Page Content */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<Service />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/features" element={<Features />} />
+          </Routes>
+        </main>
 
-import Features from './Components/Features.jsx'
-
-function App() {
-  return (
-    <>
-     <Features />
-
-
-import Service from './Components/Service'
-function App() {
-  return (
-    <>
-    <Service/>
-  
-
-
-import Hero from "./Components/hero";
-function App() {
-  return (
-    <>
-      <Hero />
- 
-
-
-import Footer from './Components/Footer'
-function App() {
-  return (
-    <>
-
-     
-     <Footer/>  
-</>
-
-import AboutPage from './Components/About'
-
-     
-    
-
-import Navbar from './Components/Navbar.jsx'
-function App() {
-  return (
-    <>
-    
-    <Navbar />
-      <AboutPage />
-
-
-
-    </>
-  )
+        {/* Footer */}
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
