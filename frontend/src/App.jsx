@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -13,28 +13,26 @@ import Hero from "./Components/Hero";
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Navbar */}
-        <Navbar />
+    <div className="flex flex-col min-h-screen">
+      {/* Navbar */}
+      <Navbar />
 
-        {/* Page Content */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<Service />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/features" element={<Features />} />
-          </Routes>
-        </main>
+      {/* Page Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<Service />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/features" element={<Features />} />
+        </Routes>
+      </main>
 
-        {/* Footer */}
-        <Footer />
-      </div>
-    </Router>
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 }
 
