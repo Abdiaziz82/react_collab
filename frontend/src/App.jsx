@@ -1,5 +1,12 @@
 import React from 'react'
 
+import Signup from './Components/Signup'  
+function App() {
+  return (
+    <>
+      <Signup />
+
+
 import Features from './Components/Features.jsx'
 
 function App() {
@@ -34,7 +41,6 @@ function App() {
 </>
 
 import AboutPage from './Components/About'
-
 
      
     
