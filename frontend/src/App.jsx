@@ -4,7 +4,8 @@ function App() {
 
   return (
     <>
-      <hi>HELLO COLLABORATERS</hi>
+      <h1>HELLO COLLABORATERS</h1>
+      <p>Welcome to the world of collaboration</p>
     </>
   )
 }
