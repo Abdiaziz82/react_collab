@@ -26,7 +26,6 @@ const Signup = () => {
       setError("Passwords do not match.");
       return;
     }
-    // Simulate successful signup
     setSuccess(true);
     setForm({
       username: "",
@@ -37,53 +36,95 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={form.username}
-            onChange={handleChange}
-            autoComplete="username"
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            autoComplete="email"
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            autoComplete="new-password"
-          />
-        </div>
-        <div>
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={form.confirmPassword}
-            onChange={handleChange}
-            autoComplete="new-password"
-          />
-        </div>
-        {error && <div style={{ color: "red" }}>{error}</div>}
-        {success && <div style={{ color: "green" }}>Signup successful!</div>}
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className="flex h-[700px] w-full">
+      <div className="w-full hidden md:inline-block">
+        <img
+          className="h-full"
+          src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/login/leftSideImage.png"
+          alt="leftSideImage"
+        />
+      </div>
+
+      <div className="w-full flex flex-col items-center justify-center">
+        <form
+          className="md:w-96 w-80 flex flex-col items-center justify-center"
+          onSubmit={handleSubmit}
+        >
+          <h2 className="text-4xl text-gray-900 font-medium">Sign Up</h2>
+          <p className="text-sm text-gray-500/90 mt-3">
+            Create your account to get started
+          </p>
+
+          {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
+          {success && (
+            <div className="text-green-500 text-sm mt-2">Signup successful!</div>
+          )}
+
+          <div className="flex items-center w-full bg-transparent border border-gray-300/60 h-12 rounded-full overflow-hidden pl-6 gap-2 mt-6">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={form.username}
+              onChange={handleChange}
+              className="bg-transparent text-gray-500/80 placeholder-gray-500/80 outline-none text-sm w-full h-full"
+              required
+            />
+          </div>
+
+          <div className="flex items-center w-full bg-transparent border border-gray-300/60 h-12 rounded-full overflow-hidden pl-6 gap-2 mt-6">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              className="bg-transparent text-gray-500/80 placeholder-gray-500/80 outline-none text-sm w-full h-full"
+              required
+            />
+          </div>
+
+          <div className="flex items-center w-full bg-transparent border border-gray-300/60 h-12 rounded-full overflow-hidden pl-6 gap-2 mt-6">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              className="bg-transparent text-gray-500/80 placeholder-gray-500/80 outline-none text-sm w-full h-full"
+              required
+            />
+          </div>
+
+          <div className="flex items-center w-full bg-transparent border border-gray-300/60 h-12 rounded-full overflow-hidden pl-6 gap-2 mt-6">
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              className="bg-transparent text-gray-500/80 placeholder-gray-500/80 outline-none text-sm w-full h-full"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="mt-8 w-full h-11 rounded-full text-white bg-indigo-500 hover:opacity-90 transition-opacity"
+          >
+            Sign Up
+          </button>
+          <p className="text-gray-500/90 text-sm mt-4">
+            Already have an account?{" "}
+            <a
+              className="text-indigo-400 hover:underline"
+              href="#"
+            >
+              Login
+            </a>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
