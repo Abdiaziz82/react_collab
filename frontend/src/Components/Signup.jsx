@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router"; // ✅ import
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -9,6 +10,8 @@ const Signup = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate(); // ✅ initialize navigate
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -38,6 +41,7 @@ const Signup = () => {
           confirmPassword: form.confirmPassword,
         }),
       });
+
       const data = await res.json();
       if (data.error) {
         setError(data.error);
@@ -50,6 +54,11 @@ const Signup = () => {
           password: "",
           confirmPassword: "",
         });
+
+        // ✅ redirect to login after short delay
+        setTimeout(() => {
+          navigate("/login");
+        }, 1500);
       }
     } catch {
       setError("Server error. Please try again.");
@@ -79,7 +88,9 @@ const Signup = () => {
 
           {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
           {success && (
-            <div className="text-green-500 text-sm mt-2">Signup successful!</div>
+            <div className="text-green-500 text-sm mt-2">
+              Signup successful! Redirecting to login...
+            </div>
           )}
 
           <div className="flex items-center w-full bg-transparent border border-gray-300/60 h-12 rounded-full overflow-hidden pl-6 gap-2 mt-6">
@@ -140,7 +151,7 @@ const Signup = () => {
             Already have an account?{" "}
             <a
               className="text-indigo-400 hover:underline"
-              href="#"
+              onClick={() => navigate("/login")} // ✅ navigate when clicked
             >
               Login
             </a>
