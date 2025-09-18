@@ -9,6 +9,8 @@ flask-sqlalchemy = "*"
 flask-cors = "*"
 flask-bcrypt = "*"
 python-dotenv = "*"
+flask-migrate = "*"
+pyjwt = "*"
 
 [dev-packages]
 
