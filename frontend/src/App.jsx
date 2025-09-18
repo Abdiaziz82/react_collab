@@ -10,6 +10,7 @@ import Products from "./Components/Product";
 import Signup from "./Components/Signup";
 import Features from "./Components/Features";
 import Hero from "./Components/Hero";
+import Testimonial from "./Components/Testimonial";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/testmonials" element={<Testimonial />}  />
         </Routes>
       </main>
 
