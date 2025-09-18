@@ -1,62 +1,40 @@
-import React from 'react'
+// src/App.jsx
+import React from "react";
 
-import Signup from './Components/Signup'  
+// Components
+import Navbar from "./Components/Navbar.jsx";
+// import Hero from "./Components/Hero.jsx";
+// import Features from "./Components/Features.jsx";
+import Signup from "./Components/Signup.jsx";
+import Service from "./Components/Service.jsx";
+import AboutPage from "./Components/About.jsx";
+import Footer from "./Components/Footer.jsx";
+
 function App() {
   return (
     <>
+      {/* Navbar at the top */}
+      <Navbar />
+
+      {/* Hero Section
+      <Hero /> */}
+
+      {/* Features Section
+      <Features /> */}
+
+      {/* Signup Section */}
       <Signup />
 
+      {/* Services Section */}
+      <Service />
 
-import Features from './Components/Features.jsx'
-
-function App() {
-  return (
-    <>
-     <Features />
-
-
-import Service from './Components/Service'
-function App() {
-  return (
-    <>
-    <Service/>
-  
-
-
-import Hero from "./Components/hero";
-function App() {
-  return (
-    <>
-      <Hero />
- 
-
-
-import Footer from './Components/Footer'
-function App() {
-  return (
-    <>
-
-     
-     <Footer/>  
-</>
-
-import AboutPage from './Components/About'
-
-     
-    
-
-import Navbar from './Components/Navbar.jsx'
-function App() {
-  return (
-    <>
-    
-    <Navbar />
+      {/* About Section */}
       <AboutPage />
 
-
-
+      {/* Footer at the bottom */}
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
