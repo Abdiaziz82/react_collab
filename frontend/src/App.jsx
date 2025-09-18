@@ -11,6 +11,12 @@ import Signup from "./Components/Signup";
 import Features from "./Components/Features";
 import Hero from "./Components/Hero";
 import Testimonial from "./Components/Testimonial";
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import ProtectedRoute from "./Components/ProtectedRoute";
+
 
 function App() {
   return (
@@ -29,6 +35,20 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/features" element={<Features />} />
           <Route path="/testmonials" element={<Testimonial />}  />
+          
+          {/* Dashboard and nested routes */}
+<Route
+    path="/dashboard/*"
+    element={
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    }
+  >
+    <Route path="home" element={<Home />} />
+    <Route path="profile" element={<Profile />} />
+    <Route path="settings" element={<Settings />} />
+  </Route>
         </Routes>
       </main>
 
