@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { FaUserAlt, FaLock } from "react-icons/fa";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include", // ✅ include cookies
+        credentials: "include",
         body: JSON.stringify(formData),
       });
 
@@ -33,79 +34,95 @@ function Login() {
       if (!res.ok) {
         setError(data.error || "Login failed");
       } else {
-        setSuccess(data.message);
-        localStorage.setItem("token", data.token); // ✅ store token
+        setSuccess("Login successful! Redirecting...");
+        localStorage.setItem("token", data.token);
         console.log("User:", data.user);
 
-        // ✅ Redirect to dashboard after successful login
         setTimeout(() => {
           navigate("/dashboard");
         }, 1000);
       }
     } catch (err) {
-      setError("Something went wrong");
+      setError("An unexpected error occurred. Please try again.");
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          Welcome Back 👋
-        </h2>
-
-        {error && (
-          <p className="text-red-500 text-sm mb-3 text-center">{error}</p>
-        )}
-        {success && (
-          <p className="text-green-500 text-sm mb-3 text-center">{success}</p>
-        )}
-
-        <div className="mb-4">
-          <label className="block text-gray-600 text-sm mb-1">
-            Username or Email
-          </label>
-          <input
-            type="text"
-            name="usernameOrEmail"
-            placeholder="Enter your username or email"
-            value={formData.usernameOrEmail}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
-            required
-          />
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 p-4">
+      <div className="flex w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+        {/* Left Panel: Branding & Visuals */}
+        <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-indigo-600 text-white p-12">
+          <h1 className="text-4xl font-bold mb-4">Enterprise Portal</h1>
+          <p className="text-center text-indigo-200">
+            Streamlining your workflow with cutting-edge technology and flawless design.
+          </p>
         </div>
 
-        <div className="mb-6">
-          <label className="block text-gray-600 text-sm mb-1">Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
-            required
-          />
+        {/* Right Panel: Login Form */}
+        <div className="w-full md:w-1/2 p-8 md:p-12">
+          <form onSubmit={handleSubmit}>
+            <h2 className="text-3xl font-bold mb-2 text-gray-800">
+              Welcome Back
+            </h2>
+            <p className="text-gray-500 mb-8">
+              Sign in to continue to your dashboard.
+            </p>
+
+            {error && (
+              <p className="bg-red-50 text-red-600 text-sm font-medium p-3 rounded-lg mb-4 text-center">{error}</p>
+            )}
+            {success && (
+              <p className="bg-green-50 text-green-600 text-sm font-medium p-3 rounded-lg mb-4 text-center">{success}</p>
+            )}
+
+            <div className="mb-5 relative">
+              <label className="block text-gray-700 text-sm font-medium mb-2">
+                Username or Email
+              </label>
+              <FaUserAlt className="absolute left-3 top-11 text-gray-400" />
+              <input
+                type="text"
+                name="usernameOrEmail"
+                placeholder="e.g., admin or admin@example.com"
+                value={formData.usernameOrEmail}
+                onChange={handleChange}
+                className="w-full border-gray-300 border rounded-lg px-10 py-3 text-gray-700 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                required
+              />
+            </div>
+
+            <div className="mb-6 relative">
+              <label className="block text-gray-700 text-sm font-medium mb-2">
+                Password
+              </label>
+              <FaLock className="absolute left-3 top-11 text-gray-400" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full border-gray-300 border rounded-lg px-10 py-3 text-gray-700 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300"
+            >
+              Sign In
+            </button>
+
+            <p className="text-center text-gray-500 text-sm mt-6">
+              Don’t have an account?{" "}
+              <a href="/signup" className="text-indigo-600 font-medium hover:underline">
+                Sign Up
+              </a>
+            </p>
+          </form>
         </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
-        >
-          Login
-        </button>
-
-        <p className="text-center text-gray-500 text-sm mt-4">
-          Don’t have an account?{" "}
-          <a href="/signup" className="text-blue-500 hover:underline">
-            Sign Up
-          </a>
-        </p>
-      </form>
+      </div>
     </div>
   );
 }
