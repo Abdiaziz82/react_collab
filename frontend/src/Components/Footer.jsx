@@ -12,6 +12,7 @@ import {
   FaEnvelope,
   FaClock
 } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const Footer = () => {
   return (
@@ -53,34 +54,44 @@ const Footer = () => {
             <h3 className="text-yellow-400 text-xl font-semibold mb-6 pb-2 border-b-2 border-yellow-400 inline-block">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                <Link to="/" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
                   <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                <Link to="/about" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
                   <FaChevronRight className="text-yellow-400 text-xs mr-2" /> About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                <Link to="/services" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
                   <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
-                  <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Portfolio
-                </a>
+                <Link to="/products" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                  <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Products
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
-                  <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Testimonials
-                </a>
+                <Link to="/features" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                  <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Features
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                <Link to="/contact" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
                   <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Contact
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                  <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Login
+                </Link>
+              </li>
+              <li>
+                <Link to="/signup" className="text-gray-200 hover:text-yellow-400 transition-all flex items-center">
+                  <FaChevronRight className="text-yellow-400 text-xs mr-2" /> Signup
+                </Link>
               </li>
             </ul>
           </div>
