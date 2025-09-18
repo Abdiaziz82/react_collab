@@ -1,39 +1,38 @@
-// src/App.jsx
 import React from "react";
+import { Routes, Route } from "react-router";
 
-// Components
-import Navbar from "./Components/Navbar.jsx";
-// import Hero from "./Components/Hero.jsx";
-// import Features from "./Components/Features.jsx";
-import Signup from "./Components/Signup.jsx";
-import Service from "./Components/Service.jsx";
-import AboutPage from "./Components/About.jsx";
-import Footer from "./Components/Footer.jsx";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import AboutPage from "./Components/About";
+import LoginPage from "./Components/Login";
+import Service from "./Components/Service";
+import Products from "./Components/Product";
+import Signup from "./Components/Signup";
+import Features from "./Components/Features";
+import Hero from "./Components/Hero";
 
 function App() {
   return (
-    <>
-      {/* Navbar at the top */}
+    <div className="flex flex-col min-h-screen">
+      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section
-      <Hero /> */}
+      {/* Page Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<Service />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/features" element={<Features />} />
+        </Routes>
+      </main>
 
-      {/* Features Section
-      <Features /> */}
-
-      {/* Signup Section */}
-      <Signup />
-
-      {/* Services Section */}
-      <Service />
-
-      {/* About Section */}
-      <AboutPage />
-
-      {/* Footer at the bottom */}
+      {/* Footer */}
       <Footer />
-    </>
+    </div>
   );
 }
 

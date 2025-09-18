@@ -1,10 +1,8 @@
 import React from 'react'
 
-const Features = () => {
+function Features() {
   return (
-    <div>
-      <h1>features</h1>
-    </div>
+    <div>Features</div>
   )
 }
 
