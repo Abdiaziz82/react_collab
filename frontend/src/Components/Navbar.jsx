@@ -62,6 +62,16 @@ export default function Navbar() {
           >
             Products
           </NavLink>
+<NavLink
+            to="/testmonials"
+            className={({ isActive }) =>
+              `font-medium transition px-3 py-2 ${
+                isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+              }`
+            }
+          >
+            Testmonials
+          </NavLink>
 
           <NavLink
             to="/login"
