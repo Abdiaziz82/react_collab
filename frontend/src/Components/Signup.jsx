@@ -16,7 +16,7 @@ const Signup = () => {
     setSuccess(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.username || !form.email || !form.password || !form.confirmPassword) {
       setError("All fields are required.");
@@ -26,13 +26,35 @@ const Signup = () => {
       setError("Passwords do not match.");
       return;
     }
-    setSuccess(true);
-    setForm({
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
+
+    try {
+      const res = await fetch("http://127.0.0.1:5000/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: form.username,
+          email: form.email,
+          password: form.password,
+          confirmPassword: form.confirmPassword,
+        }),
+      });
+      const data = await res.json();
+      if (data.error) {
+        setError(data.error);
+        setSuccess(false);
+      } else {
+        setSuccess(true);
+        setForm({
+          username: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
+      }
+    } catch {
+      setError("Server error. Please try again.");
+      setSuccess(false);
+    }
   };
 
   return (
